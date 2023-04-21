@@ -32,4 +32,3 @@ coverage
 .env.local
 .env.*.local
 
-vite.config.js
