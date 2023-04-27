@@ -1,80 +1,90 @@
 <template>
-    <div class="container">
-      <form @submit.prevent="login">
-        <h2 class="mb-3">Login</h2>
-        <div class="input">
-          <label for="email">Email address</label>
-          <input
-            class="form-control"
-            type="text"
-            name="email"
-            placeholder="email@adress.com"
-          />
-        </div>
-        <div class="input">
-          <label for="password">Password</label>
-          <input
-            class="form-control"
-            type="password"
-            name="password"
-            placeholder="password123"
-          />
-        </div>
-        <div class="alternative-option mt-4">
-          You don't have an account? <span @click="moveToRegister">Register</span>
-        </div>
-        <button type="submit" class="mt-4 btn-pers" id="login_button">
-          Login
-        </button>
-        <div
-          class="alert alert-warning alert-dismissible fade show mt-5 d-none"
-          role="alert"
-          id="alert_1"
-        >
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="alert"
-            aria-label="Close"
-          ></button>
-        </div>
-      </form>
+  <h1>AutoMate</h1>
+  <form @submit.prevent="login">
+    <label>Email:</label>
+    <input type="email" required v-model="email">
+
+    <label>Password:</label>
+    <input type="password" required v-model="password">
+
+    <div class="submit">
+      <button type="submit">Login</button>
+      <button @click="goToRegister">Register</button>
     </div>
-  </template>
+  </form>
+</template>
   
-  <script>
-  import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+<script>
+  import { signInWithEmailAndPassword } from "firebase/auth";
+  import { auth } from '../firebase/index.js'
+
   export default {
+    name: 'LoginView',
     data() {
       return {
-        email: "",
-        password: "",
-      };
+        email: '',
+        password: ''
+      }
     },
     methods: {
-      login(submitEvent) {
-        this.email = submitEvent.target.elements.email.value;
-        this.password = submitEvent.target.elements.password.value;
-        const auth = getAuth();
+      login() {
         signInWithEmailAndPassword(auth, this.email, this.password)
-          .then(() => {
-            this.$router.push("/dashboard");
+          .then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+            // ...
+            this.$router.push({ name: 'home' })
           })
           .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            console.log(errorCode);
-            console.log(errorMessage);
-            let alert_1 = document.querySelector("#alert_1");
-            alert_1.classList.remove("d-none");
-            alert_1.innerHTML = errorMessage;
-            console.log(alert_1);
           });
-      },
-      moveToRegister() {
-        this.$router.push("/register");
-      },
-    },
-  };
-  </script>
+        }
+      }
+    }
+</script>
+
+<style>
+form {
+  max-width: 420px;
+  margin: 30px auto;
+  background: white;
+  text-align: left;
+  padding: 40px;
+  border-radius: 10px;
+}
+label {
+  display: inline-block;
+  margin: 20px 0 15px;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+input {
+  display: block;
+  padding: 10px 6px;
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  color: #555;
+}
+button {
+  background: #0b6dff;
+  border: 0;
+  padding: 10px 20px;
+  margin: 20px 20px 0px 20px;
+  color: white;
+  border-radius: 20px;
+}
+.submit {
+  text-align: center;
+}
+.error {
+  color: #ff0062;
+  margin-top: 10px;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+</style>
