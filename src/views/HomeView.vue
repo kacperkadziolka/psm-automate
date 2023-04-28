@@ -1,22 +1,21 @@
 <template>
-    <div>
-        <h1>Home</h1>
+    <div class="div-container">
+        <TopBar />
+        <CarList />
     </div>
 </template>
 
 <script>
+    import TopBar from '@/components/TopBar.vue'
+    import CarList from '@/components/CarList.vue';
+
     export default {
         name: 'HomeView',
-        data() {
-            return {
-                
-            }
-        },
-        methods: {
-            
+        components: {
+            TopBar,
+            CarList
         }
     }
 </script>
-
 <style>
 </style>

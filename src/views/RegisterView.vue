@@ -25,7 +25,7 @@
 </template>
 
 <script>
-    import { createUserWithEmailAndPassword } from "firebase/auth";
+    import { createUserWithEmailAndPassword } from "firebase/auth"
     import { auth } from '../firebase/index.js'
 
     export default {
@@ -70,7 +70,7 @@
     }
 </script>
 
-<style>
+<style scoped>
 input[type="checkbox"] {
     display: inline-block;
     width: 16px;
