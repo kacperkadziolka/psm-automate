@@ -15,7 +15,17 @@ const routes = [
     path: "/home",
     name: "home",
     component: () => import("../views/HomeView.vue")
-  }
+  },
+  {
+    path: "/maps", // add new route for Maps.vue file
+    name: "Maps",
+    component: () => import("../views/MapsView.vue")
+  },
+  {
+    path: "/fuel", // add new route for Maps.vue file
+    name: "Fuel",
+    component: () => import("../views/FuelView.vue")
+  },
 ];
 
 const router = createRouter({
