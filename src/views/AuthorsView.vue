@@ -1,15 +1,14 @@
 <template>
     <div class="div-container">
         <TopBar />
-      <CarList />
       <div class="authors-container">
         <div class="author-info">
           <h2>Kacper Kądziołka</h2>
-          <p>Student ID: {tu wpisz}</p>
+          <p>Student ID: {{ kacperKadziolkaStudentID }}</p>
         </div>
         <div class="author-info">
           <h2>Krzysztof Anyż</h2>
-          <p>Student ID: s220034</p>
+          <p>Student ID: {{ krzysztofAnyzStudentID }}</p>
         </div>
       </div>
     </div>
@@ -17,13 +16,17 @@
   
   <script>
   import TopBar from '@/components/TopBar.vue'
-  import CarList from '@/components/CarList.vue';
   
   export default{
     name: 'AuthorsView',
     components: {
-      TopBar,
-      CarList
+      TopBar
+    },
+    data() {
+      return {
+        krzysztofAnyzStudentID: 's220034',
+        kacperKadziolkaStudentID: 's220692'
+      }
     }
   }
   </script>

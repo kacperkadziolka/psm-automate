@@ -1,7 +1,6 @@
 <template>
       <div class="div-container">
         <TopBar />
-        <CarList />
     </div>
     <div class="container my-4">
       <h1 class="text-center mb-4">Fuel Consumption Calculator</h1>
@@ -35,12 +34,10 @@
   
   <script>
       import TopBar from '@/components/TopBar.vue'
-    import CarList from '@/components/CarList.vue';
   export default {
     name: 'FuelConsumptionCalculator',
     components: {
-            TopBar,
-            CarList
+            TopBar
         },
     
     data() {

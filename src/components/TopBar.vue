@@ -68,6 +68,10 @@ export default {
       // Redirect to the Authors page here
       this.$router.push('/authors');
     },
+    redirectToMaintenancePage() {
+      // Redirect to the Maintenance page here
+      this.$router.push('/home');
+    },
   },
 };
 </script>

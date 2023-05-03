@@ -24,20 +24,18 @@
             return {
                 cars: []
             }
+        },
+        created() {
+            const unsubscribe = onMounted(async () => {
+                const querySnapshot = await getDocs(collection(db, "cars"));
+                querySnapshot.forEach((doc) => {
+                    // doc.data() is never undefined for query doc snapshots
+                    console.log(doc.id, " => ", doc.data());
+                    this.cars.push(doc.data())
+                });
+            })
         }
     }
-
-    onMounted(() => {
-        console.log('mounted')
-    })
-
-    const querySnapshot = await getDocs(collection(db, "cities"));
-        querySnapshot.forEach((doc) => {
-        // doc.data() is never undefined for query doc snapshots
-        console.log(doc.id, " => ", doc.data());
-        });
-
-
 </script>
 
 <style scoped>
