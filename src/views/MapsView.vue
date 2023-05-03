@@ -3,7 +3,7 @@
       <TopBar />
       <div class="text-center my-5">
         <h2>Those are mechanics near you:</h2>
-        <div class="container" id="map" style="height: 500px; width: 100%;"></div>
+        <div class="container" id="map" style="height: 550px; width: 100%;"></div>
       </div>
     </div>
   </template>
