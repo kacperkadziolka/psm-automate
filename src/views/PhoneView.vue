@@ -7,7 +7,7 @@
       <div class="call-container">
         <p>This phone number is for road assistance.</p>
         <button class="call-button" @click="callNumber">Call +48321321321</button>
-        <p>Please note that charges may apply depending on your mobile carrier.</p>
+        <i><p>Please note that charges may apply depending on your mobile carrier.</p></i>
       </div>
     </div>
   </template>
