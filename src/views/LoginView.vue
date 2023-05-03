@@ -1,17 +1,19 @@
 <template>
-  <h1>AutoMate</h1>
-  <form @submit.prevent="login">
-    <label>Email:</label>
-    <input type="email" required v-model="email">
+  <div class="marginttop">
+    <h1>AutoMate</h1>
+    <form @submit.prevent="login">
+      <label>Email:</label>
+      <input type="email" required v-model="email">
 
-    <label>Password:</label>
-    <input type="password" required v-model="password">
+      <label>Password:</label>
+      <input type="password" required v-model="password">
 
-    <div class="submit">
-      <button type="submit">Login</button>
-      <button @click="goToRegister">Register</button>
-    </div>
-  </form>
+      <div class="submit">
+        <button type="submit">Login</button>
+        <button @click="goToRegister">Register</button>
+      </div>
+    </form>
+  </div>
 </template>
   
 <script>
@@ -39,12 +41,18 @@
             const errorCode = error.code;
             const errorMessage = error.message;
           });
+        },
+        goToRegister() {
+          this.$router.push({ name: 'register' })
         }
       }
     }
 </script>
 
 <style scoped>
+.marginttop{
+  margin-top: 60px;
+}
 form {
   max-width: 420px;
   margin: 30px auto;
