@@ -22,14 +22,25 @@ const routes = [
     component: () => import("../views/MapsView.vue")
   },
   {
-    path: "/fuel", // add new route for Maps.vue file
+    path: "/fuel", 
     name: "Fuel",
     component: () => import("../views/FuelView.vue")
   },
   {
-    path: "/authors", // add new route for Maps.vue file
+    path: "/authors", 
     name: "Authors",
     component: () => import("../views/AuthorsView.vue")
+  },
+  {
+    path: "/newcar", 
+    name: "NewCar",
+    component: () => import("../views/AddNewCarView.vue")
+  },
+  {
+    path: "/car:id", 
+    name: "CarDetailsView",
+    component: () => import("../views/CarDetailsView.vue"),
+    props: true
   },
 ];
 

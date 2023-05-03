@@ -1,5 +1,5 @@
 <template>
-    <div class="div-container">
+    <div>
         <TopBar />
         <CarList />
     </div>

@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-sm-6 col-md-4 col-lg-3" v-for="car in cars" :key="car.id">
                 <div class="card m-3 car-container">
-                    <div class="card-body" style="flex: 2; padding: 1rem">
+                    <div class="card-body" style="flex: 2; padding: 1rem" @click="openDetailView(car)">
                         <h5 class="card-title">{{ car.make }} {{ car.model }}</h5>
                         <p class="card-text">{{ car.reg_number }}</p>
                     </div>
@@ -34,6 +34,13 @@
                     this.cars.push(doc.data())
                 });
             })
+        },
+        methods: {
+            openDetailView(car) {
+            console.log('test')
+            console.log(car.make)
+            this.$router.push({ name: 'CarDetailsView', params: { id: car.id, make: car.make } })
+        }
         }
     }
 </script>
