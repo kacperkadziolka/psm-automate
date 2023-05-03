@@ -31,6 +31,11 @@ const routes = [
     name: "Authors",
     component: () => import("../views/AuthorsView.vue")
   },
+  {
+    path: "/phone", // add new route for Maps.vue file
+    name: "Phone",
+    component: () => import("../views/PhoneView.vue")
+  },
 ];
 
 const router = createRouter({

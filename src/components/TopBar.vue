@@ -32,10 +32,15 @@
         <i class="bi bi-geo-alt-fill me-2"></i>
         Mechanics near me
       </button>
+      <button class="sidebar__button" @click="redirectToPhonePage">
+        <i class="bi bi-telephone-fill me-2"></i>
+        Call for road help
+      </button>
       <button class="sidebar__button" @click="redirectToAuthorsPage">
         <i class="bi bi-person-fill me-2"></i>
         Authors
       </button>
+      
     </div>
     <div class="overlay" v-if="showSidebar" @click="showSidebar = false"></div>
   </div>
@@ -71,6 +76,10 @@ export default {
     redirectToMaintenancePage() {
       // Redirect to the Maintenance page here
       this.$router.push('/home');
+    },
+    redirectToPhonePage() {
+      // Redirect to the Maintenance page here
+      this.$router.push('/phone');
     },
   },
 };
