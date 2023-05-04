@@ -11,13 +11,14 @@
       <div class="submit">
         <button type="submit">Login</button>
         <button @click="goToRegister">Register</button>
+        <button @click="googleLogin">Login with Google</button>
       </div>
     </form>
   </div>
 </template>
   
 <script>
-  import { signInWithEmailAndPassword } from "firebase/auth";
+  import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
   import { auth } from '../firebase/index.js'
 
   export default {
@@ -44,6 +45,20 @@
         },
         goToRegister() {
           this.$router.push({ name: 'register' })
+        },
+        googleLogin() {
+          const provider = new GoogleAuthProvider();
+          signInWithPopup(auth, provider)
+            .then((result) => {
+              // Signed in 
+              const user = result.user;
+              // ...
+              this.$router.push({ name: 'home' })
+            })
+            .catch((error) => {
+              const errorCode = error.code;
+              const errorMessage = error.message;
+            });
         }
       }
     }

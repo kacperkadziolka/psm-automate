@@ -32,6 +32,11 @@ const routes = [
     component: () => import("../views/AuthorsView.vue")
   },
   {
+    path: "/phone", // add new route for Maps.vue file
+    name: "Phone",
+    component: () => import("../views/PhoneView.vue")
+  },
+  {
     path: "/newcar", 
     name: "NewCar",
     component: () => import("../views/AddNewCarView.vue")
