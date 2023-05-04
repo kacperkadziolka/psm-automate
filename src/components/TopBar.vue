@@ -82,6 +82,7 @@ export default {
     redirectToPhonePage() {
       // Redirect to the Maintenance page here
       this.$router.push('/phone');
+    },
     redirectToAddNewCar() {
       // Redirect to the AddNewCar page here
       this.$router.push('/newcar');
