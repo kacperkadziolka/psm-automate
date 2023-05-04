@@ -37,7 +37,7 @@ const routes = [
     component: () => import("../views/AddNewCarView.vue")
   },
   {
-    path: "/car:id", 
+    path: "/car:reg_number", 
     name: "CarDetailsView",
     component: () => import("../views/CarDetailsView.vue"),
     props: true

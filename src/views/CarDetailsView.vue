@@ -1,20 +1,17 @@
 <template>
     <TopBar />
-    <h1>{{ make }}</h1>
+    <CarDetails :reg_number="this.$route.params.reg_number"/>
 </template>
 
 <script>
     import TopBar from '@/components/TopBar.vue'
+    import CarDetails from '../components/CarDetails.vue';
 
     export default {
         name: 'CarDetailsView',
         components: {
-            TopBar
-        },
-        computed: {
-            car() {
-                return this.$route.params.car
-            }
+            TopBar,
+            CarDetails
         }
     }
 </script>

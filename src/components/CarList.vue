@@ -38,8 +38,7 @@
         methods: {
             openDetailView(car) {
             console.log('test')
-            console.log(car.make)
-            this.$router.push({ name: 'CarDetailsView', params: { id: car.id, make: car.make } })
+            this.$router.push({ name: 'CarDetailsView', params: { reg_number: car.reg_number } })
         }
         }
     }
