@@ -14,7 +14,9 @@
       <router-link to="/Home" class="navbar-brand mx-auto title-adjust">
         <i class="bi bi-house-door-fill me-2"></i>Home
       </router-link>
-      <i type="button" class="bi bi-plus-lg mx-4 size-adjust"></i>
+      <router-link to="/newcar">
+        <i type="button" class="bi bi-plus-lg mx-4 size-adjust"></i>
+      </router-link>
     </nav>
     <div class="sidebar" :class="{ 'sidebar--visible': showSidebar }">
       <div class="sidebar-header">
@@ -80,6 +82,9 @@ export default {
     redirectToPhonePage() {
       // Redirect to the Maintenance page here
       this.$router.push('/phone');
+    redirectToAddNewCar() {
+      // Redirect to the AddNewCar page here
+      this.$router.push('/newcar');
     },
   },
 };
