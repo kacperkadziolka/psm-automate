@@ -12,11 +12,15 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
-  server: {
-    host: true,
-
+  build: {
+    outDir: 'docs', // Output directory for the built files
+    assetsDir: './', // Output directory for assets relative to outDir
+    sourcemap: true, // Generate source maps for easier debugging
+    rollupOptions: {
+      input: 'src/main.js' // Entry point of your app
+    }
   },
-
+  server: {
+    host: true
+  }
 })
-
-
