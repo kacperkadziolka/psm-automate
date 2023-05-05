@@ -1,6 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 import { getFirestore } from "firebase/firestore";
+import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDPrW5R9gNM4FBcTJZRKolH6iZ9P-bDN2M',
@@ -8,13 +9,16 @@ const firebaseConfig = {
   projectId: 'psm-automate-6133c',
   storageBucket: 'psm-automate-6133c.appspot.com',
   messagingSenderId: '306326679208',
-  appId: '1:306326679208:web:e10778e635d9c328c1dc9d'
+  appId: '1:306326679208:web:e10778e635d9c328c1dc9d',
+  storageBucket: 'psm-automate-6133c.appspot.com'
 };
 
 
 const app = initializeApp(firebaseConfig)
 const auth = getAuth(app)
 const db = getFirestore(app);
+const storage = getStorage(app);
 
 export { auth }
 export { db }
+export { storage }
