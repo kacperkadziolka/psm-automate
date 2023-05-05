@@ -1,9 +1,19 @@
 <template>
   <router-view/>
+  <ReloadPWA />
+
+  <HelloWorld msg="Hello Vue 3 + Vite" />
 </template>
 
-<script>
-  
+<script lang="ts">
+import { defineComponent } from "vue";
+import ReloadPWA from "./components/ReloadPWA.vue";
+export default defineComponent({
+  name: "App",
+  components: {
+    ReloadPWA,
+  },
+});
 </script>
 
 <style>
