@@ -1,13 +1,16 @@
 import { fileURLToPath, URL } from 'node:url';
 import { defineConfig } from 'vite';
-import vue from '@vitejs/plugin-vue';
 import { VitePWA } from 'vite-plugin-pwa';
+
+import vue from '@vitejs/plugin-vue';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/psm-automate/',
   plugins: [
-    vue(),
     VitePWA({
+      registerType: 'autoUpdate',
+      includeAssets: ['favicon.svg', 'favicon.ico', 'robots.txt', 'apple-touch-icon.png'],
       mode: "development",
       base: "/",
       srcDir: "src",
