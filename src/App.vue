@@ -1,11 +1,10 @@
 <template>
   <router-view/>
-  <ReloadPWA />
-
-  <HelloWorld msg="Hello Vue 3 + Vite" />
 </template>
 
-
+<script>
+  
+</script>
 
 <style>
 #app {
