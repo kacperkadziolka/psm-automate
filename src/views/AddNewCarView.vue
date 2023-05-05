@@ -20,7 +20,7 @@
 <script>
     import TopBar from '@/components/TopBar.vue'
     import { db } from "../firebase";
-    import { collection, addDoc } from "firebase/firestore";
+    import { collection, addDoc, query, orderBy, limit, getDoc, QuerySnapshot } from "firebase/firestore";
 
     export default {
         name: 'AddNewCarView',
@@ -31,14 +31,22 @@
             return {
                 make: '',
                 password: '',
-                registrationNumber: ''
+                registrationNumber: '',
+                id: ''
             }
         },
         methods: {
             async addNewCar() {
                 console.log('tryingToAddNewCar')
                 try {
+                  const id = query(collection(db, "cars"), orderBy("id", "desc"), limit(1));
+                  const QuerySnapshot = await getDoc(id);
+                  QuerySnapshot.forEach((doc) => {
+                    this.id = doc.data().id + 1;
+                  });
+
                     const docRef = addDoc(collection(db, "cars"), {
+                        id: newId,
                         make: this.make,
                         model: this.model,
                         reg_number: this.registrationNumber
