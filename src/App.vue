@@ -3,7 +3,6 @@
 </template>
 
 <script>
-  import manifest from '@/manifest.webmanifest';
 </script>
 
 <style>
