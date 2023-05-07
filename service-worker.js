@@ -1,5 +1,6 @@
 const CACHE_NAME = 'my-pwa-cache-v1';
 const urlsToCache = [
+  '/',
   '/index.html',
   '/manifest.json',
   '/manifest.webmanifest',
@@ -25,6 +26,9 @@ self.addEventListener('install', (event) => {
         console.log('Opened cache');
         return cache.addAll(urlsToCache);
       })
+      .catch((error) => {
+        console.error('Failed to open cache:', error);
+      })
   );
 });
 
@@ -36,6 +40,9 @@ self.addEventListener('fetch', (event) => {
           return response;
         }
         return fetch(event.request);
+      })
+      .catch((error) => {
+        console.error('Failed to fetch resource:', error);
       })
   );
 });
@@ -51,6 +58,9 @@ self.addEventListener('activate', (event) => {
           }
         })
       );
+    })
+    .catch((error) => {
+      console.error('Failed to get cache keys:', error);
     })
   );
 });
