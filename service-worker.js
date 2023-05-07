@@ -1,7 +1,7 @@
 const CACHE_NAME = 'my-pwa-cache-v1';
 const urlsToCache = [
   '/',
-  '/index.html',
+  '/manifest.webmanifest',
   '/assets/base.css',
   '/src/main.js'
 ];
@@ -29,7 +29,7 @@ self.addEventListener('fetch', (event) => {
 });
 
 self.addEventListener('activate', (event) => {
-  const cacheWhitelist = ['my-pwa-cache-v1'];
+  const cacheWhitelist = [CACHE_NAME];
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(
