@@ -1,1 +1,0 @@
-if('serviceWorker' in navigator) navigator.serviceWorker.register('/psm-automate/dev-sw.js?dev-sw', { scope: '/psm-automate/', type: 'classic' })

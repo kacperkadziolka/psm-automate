@@ -17,7 +17,7 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: 'docs', // Output directory for the built files
+    outDir: 'dist', // Output directory for the built files
     assetsDir: './', // Output directory for assets relative to outDir
     sourcemap: true, // Generate source maps for easier debugging
     rollupOptions: {
