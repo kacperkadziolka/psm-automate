@@ -15,13 +15,13 @@
     "ngrok": "^5.0.0-beta.2",
     "vue": "^3.2.47",
     "vue-icons": "^2.0.0",
-    "vue-router": "^4.1.6",
-    "workbox-webpack-plugin": "^6.5.4"
+    "vue-router": "^4.1.6"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",
     "test2": "^1.0.5",
     "vite": "^4.1.4",
-    "vite-plugin-pwa": "^0.14.7"
+    "vite-plugin-pwa": "^0.14.7",
+    "workbox-webpack-plugin": "^6.5.4"
   }
 }

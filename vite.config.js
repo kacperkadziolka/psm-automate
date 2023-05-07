@@ -4,6 +4,7 @@ import vue from '@vitejs/plugin-vue';
 import { VitePWA } from 'vite-plugin-pwa';
 import { GenerateSW } from 'workbox-webpack-plugin';
 
+
 export default defineConfig({
   base: '/psm-automate/',
   plugins: [
