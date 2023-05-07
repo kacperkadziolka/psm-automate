@@ -2,13 +2,10 @@ const CACHE_NAME = 'my-pwa-cache-v1';
 const urlsToCache = [
   '/',
   '/index.html',
-  '/psm-automate/assets/index-83c7566b.css',
-  '/psm-automate/assets/index-1efcbf72.js',
-  '/psm-automate/manifest.webmanifest',
-  '/psm-automate/apple-touch-icon.png',
-  '/psm-automate/favicon-32x32.png',
-  '/psm-automate/favicon-16x16.png',
-  '/masked-icon.png',
+  '/assets/base.css',
+  '/manifest.json',
+  '/manifest.webmanifest',
+  '/src/main.js'
 ];
 
 self.addEventListener('install', (event) => {
@@ -34,7 +31,7 @@ self.addEventListener('fetch', (event) => {
 });
 
 self.addEventListener('activate', (event) => {
-  const cacheWhitelist = [CACHE_NAME];
+  const cacheWhitelist = ['my-pwa-cache-v1'];
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(
