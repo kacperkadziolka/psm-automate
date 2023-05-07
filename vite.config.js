@@ -17,9 +17,6 @@ export default defineConfig({
     },
   },
   server: {
-    host: true,
-    // Serve index.html from the public directory
-    // This is the default behavior, but it's good to be explicit
-    index: 'index.html',
+    host: true
   },
 });
