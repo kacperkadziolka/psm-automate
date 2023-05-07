@@ -3,8 +3,6 @@ const urlsToCache = [
   '/',
   '/index.html',
   '/assets/base.css',
-  '/manifest.json',
-  '/manifest.webmanifest',
   '/src/main.js'
 ];
 
