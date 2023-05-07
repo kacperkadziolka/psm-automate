@@ -13,6 +13,7 @@
     "bootstrap-vue": "^2.23.1",
     "firebase": "^9.19.1",
     "ngrok": "^5.0.0-beta.2",
+    "npm-watch": "^0.11.0",
     "vue": "^3.2.47",
     "vue-icons": "^2.0.0",
     "vue-router": "^4.1.6"
