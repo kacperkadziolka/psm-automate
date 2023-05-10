@@ -10,7 +10,7 @@
 
         <div class="car-photos">
             <button v-if="hasPhotos" @click="showPopup=true">View Photos</button>
-            <photos-popup :show-popup="showPopup" :reg_number="this.reg_number" @close-popup="showPopup = false" />
+            <photos-popup :show-popup="showPopup" :reg_number="this.reg_number" @close-popup="showPopup=false" />
 
             <button @click="openModal">Add Photo</button>
 
@@ -64,7 +64,7 @@
             }
         },
         created() {
-            const unsubscribe = onMounted(async () => {
+            onMounted(async () => {
                 const querySnapshot = await getDocs(collection(db, "cars"));
                 querySnapshot.forEach((doc) => {
                     const carData = doc.data();
@@ -74,7 +74,7 @@
                 });
             })
 
-            const unsubscribePhotos = onMounted(async () => {
+            onMounted(async () => {
                 const photoRef = ref(storage, `cars/${this.reg_number}`);
                 const photoList = await listAll(photoRef);
                 if (photoList.items.length > 0) {
@@ -103,6 +103,8 @@
                 canvas.width = this.video.videoWidth;
                 canvas.height = this.video.videoHeight;
                 canvas.getContext("2d").drawImage(this.video, 0, 0);
+                
+                // Binary large object (BLOB) is a generic term used to describe the handling and storage of long strings of data by database management systems.
                 canvas.toBlob(async (blob) => {
                     const photoRef = ref(storage, `cars/${this.reg_number}/${Date.now()}.png`);
                     await uploadBytes(photoRef, blob);
@@ -119,7 +121,6 @@
 
 <style scoped>
 .car-photos {
-    position: fixed;
     bottom: 0px;
     width: 100%;
     padding: 50px;
@@ -132,38 +133,38 @@
     margin-top: 10px;
     overflow: auto;
   }
-  .car-info {
+.car-info {
     text-align: center;
     margin-bottom: 20px;
-  }
-  .car-photos {
+}
+.car-photos {
     margin-top: 20px;
-  }
-  .car-photos button {
+}
+.car-photos button {
     margin-right: 10px;
     margin-left: 10px;
 }
-  button {
+button {
     padding: 10px;
     background-color: #007bff;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-  }
-  .hideButton {
+}
+.hideButton {
     background-color: transparent;
     border: none;
     color: white;
     cursor: pointer;
-  }
-  .hideButton:hover {
+}
+.hideButton:hover {
     background-color: transparent;
     border: none;
     color: white;
     cursor: pointer;
-  }
-  button:hover {
+}
+button:hover {
     background-color: #0069d9;
-  }
+}
 </style>

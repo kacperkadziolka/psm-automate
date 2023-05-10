@@ -1,5 +1,5 @@
 <template>
-  <div class="marginttop">
+  <div class="margintop">
     <h1>AutoMate</h1>
     <form @submit.prevent="login">
       <label>Email:</label>
@@ -35,12 +35,12 @@
           .then((userCredential) => {
             // Signed in 
             const user = userCredential.user;
-            // ...
             this.$router.push({ name: 'home' })
           })
           .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
+            console.log('error: ', error);
           });
         },
         goToRegister() {
@@ -52,12 +52,12 @@
             .then((result) => {
               // Signed in 
               const user = result.user;
-              // ...
               this.$router.push({ name: 'home' })
             })
             .catch((error) => {
               const errorCode = error.code;
               const errorMessage = error.message;
+              console.log('error: ', error);
             });
         }
       }
@@ -65,7 +65,7 @@
 </script>
 
 <style scoped>
-.marginttop{
+.margintop{
   margin-top: 60px;
 }
 form {

@@ -17,7 +17,7 @@ const routes = [
     component: () => import("../views/HomeView.vue")
   },
   {
-    path: "/maps", // add new route for Maps.vue file
+    path: "/maps", 
     name: "Maps",
     component: () => import("../views/MapsView.vue")
   },
@@ -32,7 +32,7 @@ const routes = [
     component: () => import("../views/AuthorsView.vue")
   },
   {
-    path: "/phone", // add new route for Maps.vue file
+    path: "/phone", 
     name: "Phone",
     component: () => import("../views/PhoneView.vue")
   },

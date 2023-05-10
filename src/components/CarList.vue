@@ -26,18 +26,15 @@
             }
         },
         created() {
-            const unsubscribe = onMounted(async () => {
+            onMounted(async () => {
                 const querySnapshot = await getDocs(collection(db, "cars"));
                 querySnapshot.forEach((doc) => {
-                    // doc.data() is never undefined for query doc snapshots
-                    console.log(doc.id, " => ", doc.data());
                     this.cars.push(doc.data())
                 });
             })
         },
         methods: {
             openDetailView(car) {
-            console.log('test')
             this.$router.push({ name: 'CarDetailsView', params: { reg_number: car.reg_number } })
         }
         }

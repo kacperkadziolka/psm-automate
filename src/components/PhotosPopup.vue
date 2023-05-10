@@ -30,6 +30,7 @@
         },
         methods: {
             closePopup() {
+                // $emit is a method in Vue.js that allows a child component to trigger an event to its parent component.
                 this.$emit("close-popup");
             }
         },
@@ -51,34 +52,35 @@
 
 <style scoped>
 .popup-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    overflow: scroll;
+    position: fixed;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .popup {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
 }
 h2 {
-  margin-top: 0;
+    margin-top: 0;
 }
 .photos {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 .photos img {
-  width: 200px;
-  margin: 10px;
-  object-fit: cover;
+    width: 200px;
+    margin: 10px;
+    object-fit: cover;
 }
 button {
     padding: 10px;

@@ -1,7 +1,7 @@
 <template>
     <div>
-        <TopBar />
-        <CarList />
+        <TopBar/>
+        <CarList/>
     </div>
 </template>
 
@@ -17,5 +17,3 @@
         }
     }
 </script>
-<style>
-</style>
