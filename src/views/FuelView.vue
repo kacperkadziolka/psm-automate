@@ -1,7 +1,9 @@
 <template>
+
   <div class="div-container">
     <TopBar />
   </div>
+  
   <div class="container my-4">
     <h1 class="text-center mb-4">Fuel Consumption Calculator</h1>
     <form>
@@ -50,8 +52,10 @@ export default {
     calculateFuelUsage() {
       // Calculate the average fuel usage in litres per 100 km round to 2nd place after coma 
       this.averageFuelUsage = ((this.fuelConsumed / this.distanceDriven) * 100).toFixed(2);
+
       // Calculate the average fuel cost in PLN per 100 km round to 2nd place after coma 
       this.averageFuelCost = ((this.fuelPrice * this.fuelConsumed) / this.distanceDriven * 100).toFixed(2);
+
       // Clear input fields
       this.distanceDriven = null;
       this.fuelConsumed = null;
@@ -60,6 +64,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-</style>

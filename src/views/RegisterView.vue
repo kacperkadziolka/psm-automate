@@ -57,14 +57,13 @@
                         // Signed in 
                         const user = userCredential.user;
                         console.log('user: ', user)
-                        // ...
+                        // routing
                         this.$router.push({ name: 'home' })
                     })
                     .catch((error) => {
                         const errorCode = error.code;
                         const errorMessage = error.message;
                         console.log('error: ', error)
-                        // ..
                     })
                 }
             }

@@ -1,5 +1,6 @@
 <template>
     <TopBar />
+
     <h1 class="header">Add new car details:</h1>
     <form @submit.prevent="addNewCar">
       <label>Make:</label>
@@ -18,40 +19,37 @@
 </template>
 
 <script>
-    import TopBar from '@/components/TopBar.vue'
-    import { db } from "../firebase";
-    import { collection, addDoc } from "firebase/firestore";
+  import TopBar from '@/components/TopBar.vue'
+  import { db } from "../firebase";
+  import { collection, addDoc } from "firebase/firestore";
 
-    export default {
-        name: 'AddNewCarView',
-        components: {
-            TopBar
-        },
-        data() {
-            return {
-                make: '',
-                password: '',
-                registrationNumber: ''
-            }
-        },
-        methods: {
-            async addNewCar() {
-                console.log('tryingToAddNewCar')
-                try {
-                    const docRef = addDoc(collection(db, "cars"), {
-                        make: this.make,
-                        model: this.model,
-                        reg_number: this.registrationNumber
-                    });
-                    console.log("Document written with ID: ", docRef.id);
-                    this.$router.push({ name: 'home' })
-                } catch (e) {
-                    console.error("Error adding document: ", e);
-                }
-
-            }
+  export default {
+    name: 'AddNewCarView',
+    components: {
+      TopBar
+    },
+    data() {
+      return {
+        make: '',
+        password: '',
+        registrationNumber: ''
         }
+      },
+    methods: {
+      async addNewCar() {
+        try {
+          const docRef = addDoc(collection(db, "cars"), {
+            make: this.make,
+            model: this.model,
+            reg_number: this.registrationNumber
+          });
+          this.$router.push({ name: 'home' })
+        } catch (e) {
+          console.error("Error adding document: ", e);
+        }
+      }
     }
+  }
 </script>
 
 <style scoped>

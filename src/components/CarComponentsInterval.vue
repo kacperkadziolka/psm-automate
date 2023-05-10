@@ -1,44 +1,14 @@
 <template>
     <div v-if="car_maitenance">
         <div class="car-data">
-            
-            <div class="maintenance-item">
-                <div class="maitenance-part">
-                    <span>Motor oil and filters:</span>
-                </div>
-                <div class="maitenance-date">
-                    <span>{{ motorOilDate }}</span>
-                    <div :class="['color-box', motorOilBoxColor]"></div>
-                </div>
-            </div>
 
-            <div class="maintenance-item">
-                <div class="maitenance-part">
-                    <span>Coolant fluid:</span>
+            <div v-for="(item, index) in maintenanceItems" :key="index" class="maintenance-item">
+                <div class="maintenance-part">
+                    <span>{{ item.label }}:</span>
                 </div>
-                <div class="maitenance-date">
-                    <span>{{ coolantFluidDate }}</span>
-                    <div :class="['color-box', coolantFluidBoxColor]"></div>
-                </div>
-            </div>
-
-            <div class="maintenance-item">
-                <div class="maitenance-part">
-                    <span>Braking system:</span>
-                </div>
-                <div class="maitenance-date">
-                    <span>{{ brakePadsDate }}</span>
-                    <div :class="['color-box', brakePadsBoxColor]"></div>
-                </div>
-            </div>
-
-            <div class="maintenance-item">
-                <div class="maitenance-part">
-                    <span>Overall maitenance:</span>
-                </div>
-                <div class="maitenance-date">
-                    <span>{{ OverallConditionDate }}</span>
-                    <div :class="['color-box', OverallConditionBoxColor]"></div>
+                <div class="maintenance-date">
+                    <span>{{ formatDate(getMaintenanceDate(item.key)) }}</span>
+                    <div :class="['color-box', getBoxColor(getMaintenanceDate(item.key))]"></div>
                 </div>
             </div>
 
@@ -63,11 +33,17 @@
         },
         data() {
             return {
-                car_maitenance: null
+                car_maitenance: null,
+                maintenanceItems: [
+                    { label: "Motor oil and filters", key: "motor_oil" },
+                    { label: "Coolant fluid", key: "coolant_fluid" },
+                    { label: "Braking system", key: "brake_pads" },
+                    { label: "Overall condition", key: "overall_condition" }
+                ]
             }
         },
         created() {
-            const unsubscribe = onMounted(async () => {
+            onMounted(async () => {
                 const querySnapshot = await getDocs(collection(db, "maitenance"));
                 querySnapshot.forEach((doc) => {
                     const carData = doc.data();
@@ -77,45 +53,35 @@
                 });
             })
         },
-        computed: {
-            
-            brakePadsDate() {
-                if (this.car_maitenance && this.car_maitenance.brake_pads) return this.formatDate(this.car_maitenance.brake_pads);
-            },
-            brakePadsBoxColor() {
-                if (this.car_maitenance && this.car_maitenance.brake_pads) return this.getBoxColor(this.car_maitenance.brake_pads);
-            },
-            motorOilDate() {
-                if (this.car_maitenance && this.car_maitenance.motor_oil) return this.formatDate(this.car_maitenance.motor_oil)
-            },
-            motorOilBoxColor() {
-                if (this.car_maitenance && this.car_maitenance.motor_oil) return this.getBoxColor(this.car_maitenance.motor_oil);
-            },
-            coolantFluidDate() {
-                if (this.car_maitenance && this.car_maitenance.coolant_fluid) return this.formatDate(this.car_maitenance.coolant_fluid);
-            },
-            coolantFluidBoxColor() {
-                if (this.car_maitenance && this.car_maitenance.coolant_fluid) return this.getBoxColor(this.car_maitenance.coolant_fluid);
-            },
-            OverallConditionDate() {
-                if (this.car_maitenance && this.car_maitenance.overall_condition) return this.formatDate(this.car_maitenance.overall_condition);
-            },
-            OverallConditionBoxColor() {
-                if (this.car_maitenance && this.car_maitenance.overall_condition) return this.getBoxColor(this.car_maitenance.overall_condition);
-            }
-        },
         methods: {
+            getMaintenanceDate(key) {
+                if (this.car_maitenance && this.car_maitenance[key]) return this.car_maitenance[key];
+            },
             formatDate(timestamp) {
+                // Converts timestamp from db to date
                 const date = timestamp.toDate();
+
+                // Specifices date format
                 const options = { year: "numeric", month: "short", day: "numeric" };
+
+                // Converts date to string
                 const dateString = date.toLocaleDateString("en-US", options)
                 return dateString.toUpperCase()
             },
             getBoxColor(timestamp) {
+                // Converts timestamp from db to date
                 const date = timestamp.toDate();
+
+                // Gets current date
                 const currentDate = new Date();
+
+                // Calculates time difference between timestamp from db and current date (in milliseconds)
                 const timeDiff = date.getTime() - currentDate.getTime();
+
+                // Converts time difference to days - 1000 milliseconds per second * 3600 seconds per hour * 24 hours per day
                 const dayDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
+
+                // This determine the color of the box displayed next to the date
                 if (dayDiff <= 0) {
                     return "red";
                 } else if (dayDiff <= 7) {
@@ -151,7 +117,7 @@
     border-radius: 10px;
     width: 300px;
 }
-.maitenance-date {
+.maintenance-date {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -159,7 +125,7 @@
     margin-top: 10px;
     font-size: 20px;
 }
-.maitenance-part {
+.maintenance-part {
     font-size: 24px;
     font-weight: 600;
     align-items: center;
