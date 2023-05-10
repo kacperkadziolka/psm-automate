@@ -1,14 +1,18 @@
 # AutoMate
 
-This template should help get you started developing with Vue 3 in Vite.
+SPA and PWA application made with Vue 3 and Firebase as a project for university course named PSM - Programowanie Systemów mobilnych<br />
 
-## Recommended IDE Setup
+### Authors:
+Kacper Kądziołka<br />
+Krzysztof Anyż
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## Marvel Prototype
 
-## Customize configuration
+https://marvelapp.com/prototype/76g6a89
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+## Use Case Diagram
+
+![AutoMate - Diagram of use cases ](https://github.com/kacperkadziolka/psm-automate/blob/main/automate%20diagram.png)
 
 ## Project Setup
 
