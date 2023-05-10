@@ -1,6 +1,6 @@
 # AutoMate
 
-SPA and PWA application made with Vue 3 and Firebase as a project for university course named PSM - Programowanie Systemów mobilnych<br />
+SPA and PWA application made with Vue 3 and Firebase as a project for university course named PSM - Programowanie Systemów Mobilnych<br />
 
 ### Authors:
 Kacper Kądziołka<br />
