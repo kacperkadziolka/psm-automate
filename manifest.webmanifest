@@ -1,7 +1,9 @@
 {
     "name": "Automate",
     "short_name": "Automate",
-    "start_url": "https://kacperkadziolka.github.io/",
+    
+"id": "/psm-automate/",    
+"start_url": "https://kacperkadziolka.github.io/",
     "icons": [
       {
         "src": "android-chrome-192x192.png",
