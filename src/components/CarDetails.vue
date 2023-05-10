@@ -1,8 +1,9 @@
 <template>
     <div class="car-details">
+
         <div v-if="car" class="car-info">
-            <h2>{{ car.make }} {{ car.model }}</h2>
-            <p>Registration Number: {{ car.reg_number }}</p>
+            <h1>Maitenance Data</h1>
+            <h4>{{ car.make }} {{ car.model }}</h4>
         </div>
 
         <CarComponentsInterval :reg_number="this.reg_number" />
@@ -128,17 +129,19 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 50px;
+    margin-top: 10px;
+    overflow: auto;
   }
   .car-info {
     text-align: center;
+    margin-bottom: 20px;
   }
   .car-photos {
     margin-top: 20px;
   }
   .car-photos button {
-    margin-right: 20px;
-    margin-left: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
   button {
     padding: 10px;

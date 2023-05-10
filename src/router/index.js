@@ -47,6 +47,12 @@ const routes = [
     component: () => import("../views/CarDetailsView.vue"),
     props: true
   },
+  {
+    path: "/car:reg_number/edit",
+    name: "EditCarView",
+    component: () => import("../views/MaitenanceDataView.vue"),
+    props: true
+  }
 ];
 
 const router = createRouter({
