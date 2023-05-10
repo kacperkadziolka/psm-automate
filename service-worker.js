@@ -1,14 +1,14 @@
 const CACHE_NAME = 'my-pwa-cache-v1';
 const urlsToCache = [
   '/',
-  '/index.html',
-  '/favicon-16x16.png',
-  '/favicon-32x32.png',
-  '/android-chrome-192x192.png',
-  '/android-chrome-512x512.png',
-  '/pwa-192x192.png',
-  '/pwa-512x512.png',
-  '/site.webmanifest',
+  'index.html',
+  'favicon-16x16.png',
+  'favicon-32x32.png',
+  'android-chrome-192x192.png',
+  'android-chrome-512x512.png',
+  'pwa-192x192.png',
+  'pwa-512x512.png',
+  'site.webmanifest',
 ];
 
 self.addEventListener('install', (event) => {
