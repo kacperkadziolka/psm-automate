@@ -6,6 +6,10 @@ SPA and PWA application made with Vue 3 and Firebase as a project for university
 Kacper Kądziołka<br />
 Krzysztof Anyż
 
+### URL:
+
+https://kacperkadziolka.github.io/psm-automate/
+
 ## Marvel Prototype
 
 https://marvelapp.com/prototype/76g6a89
